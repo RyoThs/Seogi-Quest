@@ -51,3 +51,26 @@ test('une pose vue de face montre les jambes de près au lieu d\'un reflet ident
   assert.ok(v.some(s => s.includes('data-vue="jambes"')));
   assert.ok(!v.some(s => s.includes('scale(-1,1)')));
 });
+
+// Mesures vérifiées sur le lexique fourni par Yoann (2026-11-27)
+const traces = id => JAMBES[id].pieds.traces;
+test('ap kubi et ap seogi : pied arrière ouvert entre 30° et 45°', () => {
+  for (const id of ['apkubi', 'apseogi']) {
+    const rot = Math.abs(traces(id)[0][2]);
+    assert.ok(rot >= 30 && rot <= 45, `${id} : ${rot}°`);
+  }
+});
+
+test('beom seogi : pieds en angle d\'environ 45°', () => {
+  assert.equal(Math.abs(traces('beom')[0][2]), 45);
+});
+
+test('juchum seogi : deux longueurs de pied entre les pieds (texte et explication)', () => {
+  assert.match(JAMBES.juchum.pieds.texte, /2 longueurs de pied/);
+  assert.match(MOTS.find(m => m.id === 'juchum').comment, /deux longueurs de pied/);
+});
+
+test('les explications donnent les mesures du livre (ap kubi 45°, dwit kubi 90°)', () => {
+  assert.match(MOTS.find(m => m.id === 'apkubi').comment, /45°/);
+  assert.match(MOTS.find(m => m.id === 'dwitkubi').comment, /90°/);
+});
