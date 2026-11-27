@@ -1,0 +1,11 @@
+{
+  "name": "seogi-quest",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Jeu 4 images 1 mot pour apprendre les positions et techniques du taekwondo",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "test:e2e": "node --test tests/e2e/*.test.cjs"
+  }
+}
