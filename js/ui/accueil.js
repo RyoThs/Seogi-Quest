@@ -2,7 +2,7 @@ import { NIVEAUX } from '../donnees/niveaux.js';
 import { MOTS } from '../donnees/mots.js';
 import { avancement, totalTrouves } from '../logique/progression.js';
 import { cartesDuJour } from '../logique/revision.js';
-import { imagePrincipale } from '../dessin/vues.js';
+import { imagePrincipaleDuMot as imagePrincipale } from '../dessin/images.js';
 import { proteger, echapper } from './cloison.js';
 
 export function niveauCourant(etat) {
@@ -33,5 +33,6 @@ export function ecranAccueil({ etat, aujourdhui, panne }) {
     <button class="btn" data-action="aller" data-vers="#/jeu/${niv.id}">Reprendre</button>
     <button class="btn btn-second" data-action="aller" data-vers="#/revision">Réviser${aReviser ? ` · ${pluriel(aReviser, 'carte')}` : ''}</button>
     ${stats}
-    <button class="btn-texte" style="margin:14px auto 0;display:flex" data-action="aller" data-vers="#/niveaux">Tous les niveaux</button>`;
+    <button class="btn-texte" style="margin:14px auto 0;display:flex" data-action="aller" data-vers="#/niveaux">Tous les niveaux</button>
+    <button class="btn-texte" style="margin:0 auto;display:flex;color:var(--gris)" data-action="aller" data-vers="#/apropos">À propos</button>`;
 }

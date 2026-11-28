@@ -1,5 +1,5 @@
 // Fiche d'un mot (bonne réponse et verso des cartes de révision) : un seul composant commun.
-import { imagePrincipale } from '../dessin/vues.js';
+import { imagePrincipaleDuMot as imagePrincipale } from '../dessin/images.js';
 import { echapper } from './cloison.js';
 
 export const ficheMot = mot => `<div class="mot-trouve">${echapper(mot.mot)}</div>

@@ -10,11 +10,16 @@ Sert à fabriquer les images des mots. **Rien de ce dossier n'est chargé par l'
 | `ik.html` | Calculateur d'angles (cinématique inverse) |
 | `produire.cjs` | Calcule les poses de tous les mots → `poses-calculees.json` |
 | `rendre.cjs` | Photographie chaque pose (lumière studio, muscles actifs en rouge) |
+| `produire-images.cjs` | Produit les 4 images de chaque mot dans `images/mots/` (principale, autre côté, gros plan, mouvement avec la pose de départ en transparence) |
 
 Lancer (three.js 0.170.0 dans `package/` à côté des pages, et un petit serveur web sur le port 8765) :
 ```bash
 node produire.cjs            # ou : node produire.cjs apkubi araemakki
 node rendre.cjs 60 vues      # angle de vue en degrés, dossier de sortie
+node produire-images.cjs ../../images/mots   # les images de l'appli
+```
+Après un nouveau mot : l'ajouter à `PHOTOS` dans `js/donnees/photos.js`, régénérer `images/mots/liste.json` (un test vérifie qu'ils correspondent).
+```
 ```
 
 ## Licences

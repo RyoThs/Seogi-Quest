@@ -1,6 +1,6 @@
 import { niveauParId } from '../donnees/niveaux.js';
 import { lettresDuMot } from '../logique/partie.js';
-import { quatreVues } from '../dessin/vues.js';
+import { vuesDuMot } from '../dessin/images.js';
 import { ICONES } from './icones.js';
 import { ficheMot } from './fiche.js';
 import { proteger, echapper } from './cloison.js';
@@ -15,7 +15,7 @@ export function ecranJeu(session) {
       <button class="btn" data-action="suivant">${dernier ? 'Niveau terminé · Voir les niveaux' : 'Mot suivant'}</button>`;
   }
   const p = session.partie;
-  const images = proteger('Les images', () => `<div class="images">${quatreVues(mot).map(s => `<div class="illus">${s}</div>`).join('')}</div>`, { pluriel: true });
+  const images = proteger('Les images', () => `<div class="images">${vuesDuMot(mot).map(s => `<div class="illus">${s}</div>`).join('')}</div>`, { pluriel: true });
   let k = 0;
   const mots = lettresDuMot(mot.mot);
   const long = mots.flat().length > 10;

@@ -10,6 +10,7 @@ import { ecranAccueil, idsTrouves } from './ui/accueil.js';
 import { ecranNiveaux } from './ui/niveaux.js';
 import { ecranJeu } from './ui/jeu.js';
 import { ecranRevision } from './ui/revision.js';
+import { ecranAPropos } from './ui/apropos.js';
 
 const app = document.getElementById('app');
 const boite = document.getElementById('message');
@@ -56,6 +57,7 @@ function afficher() {
   let html;
   if (ecran === 'niveaux') html = proteger('La liste des niveaux', () => ecranNiveaux({ etat, onglet: param }));
   else if (ecran === 'jeu' && ouvrirNiveau(param)) html = proteger('La partie', () => ecranJeu(session));
+  else if (ecran === 'apropos') html = proteger('La page À propos', () => ecranAPropos());
   else if (ecran === 'revision') { if (!rev) ouvrirRevision(); html = proteger('La révision', () => ecranRevision(rev)); }
   else html = proteger("L'accueil", () => ecranAccueil({ etat, aujourdhui: aujourdhui(), panne }));
   app.innerHTML = html;
