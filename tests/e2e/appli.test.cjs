@@ -107,7 +107,7 @@ test('révision : carte image puis réponse, Je savais / À revoir', async () =>
   await taper(page, await page.locator('[data-solution]').getAttribute('data-solution'));
   await page.getByText('Trouvé').waitFor();
   await page.goto(serveur.url + '#/revision');
-  await page.locator('.carte svg').waitFor();
+  await page.locator('.carte .illus img, .carte .illus svg').first().waitFor();
   await page.getByRole('button', { name: 'Voir la réponse' }).click();
   await page.locator('.mot-trouve').waitFor();
   await page.getByRole('button', { name: 'Je savais' }).click();
