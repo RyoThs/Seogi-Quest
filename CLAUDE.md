@@ -16,7 +16,8 @@ Commandes : `npm test` puis `npm run test:e2e` (iPhone 13, iPhone SE, Pixel 7, h
 
 ## À chaque version
 - Changer `VERSION` dans `sw.js`, le `?v=` dans `index.html` et `sw.js`, et ajouter tout nouveau fichier à `FICHIERS`.
-- Copie de secours `sauvegarde-vX.Y.Z` avant de fusionner, demande de fusion validée par Yoann.
+- Copie de secours `sauvegarde-vX.Y.Z` avant de fusionner.
+- **Envoyer le code et faire la fusion soi-même, à chaque fois** (demandé par Yoann le 2026-11-28) : tests verts (local + GitHub) → demande de fusion → fusion par Claude, sans attendre de « ok ». Ensuite, recopier `main` dans `essai-acces` (branche affichée par défaut sur GitHub) tant que Yoann ne l'a pas changée.
 
 ## Images des mots
 - Photos du mannequin anatomique dans `images/mots/` (outil `outils/mannequin/`), liste dans `js/donnees/photos.js` + `images/mots/liste.json` (hors ligne).
