@@ -1,0 +1,619 @@
+{
+ "_jambes": {
+  "debout": {},
+  "apseogi": {
+   "Thigh_L": [
+    0,
+    0,
+    25
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -20
+   ]
+  },
+  "apkubi": {
+   "Thigh_L": [
+    0,
+    0,
+    60
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -60
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -42
+   ]
+  },
+  "garde_coup": {
+   "Thigh_L": [
+    0,
+    0,
+    10
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -15
+   ]
+  }
+ },
+ "_bras": {
+  "hancheG": {
+   "UpperArm_L": [
+    0,
+    -60,
+    -45
+   ],
+   "ForeArm_L": [
+    0,
+    65,
+    -30
+   ]
+  },
+  "hancheD": {
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ]
+  },
+  "araeG": {
+   "UpperArm_L": [
+    0,
+    -35,
+    30
+   ],
+   "ForeArm_L": [
+    0,
+    -35,
+    0
+   ]
+  },
+  "gardeG": {
+   "UpperArm_L": [
+    0,
+    -50,
+    25
+   ],
+   "ForeArm_L": [
+    0,
+    100,
+    0
+   ]
+  },
+  "gardeD": {
+   "UpperArm_R": [
+    0,
+    50,
+    25
+   ],
+   "ForeArm_R": [
+    0,
+    -100,
+    0
+   ]
+  }
+ },
+ "mots": {
+  "naranhi": {
+   "jambes": "debout",
+   "bras": [],
+   "ik": [
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.24,
+       1.12,
+       0.1
+      ],
+      "Hand_L": [
+       0.07,
+       1.0,
+       0.22
+      ]
+     }
+    },
+    {
+     "libres": [
+      "UpperArm_R",
+      "ForeArm_R"
+     ],
+     "cibles": {
+      "ForeArm_R": [
+       -0.24,
+       1.12,
+       0.1
+      ],
+      "Hand_R": [
+       -0.07,
+       1.0,
+       0.22
+      ]
+     }
+    }
+   ],
+   "muscles": [],
+   "mains": "poings"
+  },
+  "moa": {
+   "jambes": "debout",
+   "bras": [],
+   "ik": [
+    {
+     "libres": [
+      "Thigh_L"
+     ],
+     "cibles": {
+      "Foot_L": [
+       0.07,
+       0.07,
+       0.02
+      ]
+     }
+    },
+    {
+     "libres": [
+      "Thigh_R"
+     ],
+     "cibles": {
+      "Foot_R": [
+       -0.07,
+       0.07,
+       0.02
+      ]
+     }
+    },
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.24,
+       1.13,
+       0.0
+      ],
+      "Hand_L": [
+       0.22,
+       0.88,
+       0.04
+      ]
+     }
+    },
+    {
+     "libres": [
+      "UpperArm_R",
+      "ForeArm_R"
+     ],
+     "cibles": {
+      "ForeArm_R": [
+       -0.24,
+       1.13,
+       0.0
+      ],
+      "Hand_R": [
+       -0.22,
+       0.88,
+       0.04
+      ]
+     }
+    }
+   ],
+   "muscles": [],
+   "mains": "poings"
+  },
+  "apseogi": {
+   "jambes": "apseogi",
+   "bras": [
+    "hancheG",
+    "hancheD"
+   ],
+   "ik": [],
+   "muscles": [
+    [
+     "Quadriceps",
+     "Gluteus Maximus",
+     "Calves"
+    ],
+    "LR"
+   ],
+   "mains": "poings"
+  },
+  "apkubi": {
+   "jambes": "apkubi",
+   "bras": [
+    "hancheG",
+    "hancheD"
+   ],
+   "ik": [],
+   "muscles": [
+    [
+     "Quadriceps",
+     "Gluteus Maximus",
+     "Calves"
+    ],
+    "LR"
+   ],
+   "mains": "poings"
+  },
+  "araemakki": {
+   "jambes": "apkubi",
+   "bras": [
+    "araeG",
+    "hancheD"
+   ],
+   "ik": [],
+   "muscles": [
+    [
+     "Deltoids",
+     "Biceps",
+     "Brachialis",
+     "Brachioradialis",
+     "Triceps",
+     "Forearm Flexors",
+     "Forearm Extensors"
+    ],
+    "L"
+   ],
+   "mains": "poings"
+  },
+  "momtongmakki": {
+   "jambes": "apseogi",
+   "bras": [
+    "hancheD"
+   ],
+   "ik": [
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.18,
+       1.17,
+       0.13
+      ],
+      "Hand_L": [
+       0.12,
+       1.36,
+       0.32
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Deltoids",
+     "Biceps",
+     "Brachialis",
+     "Brachioradialis",
+     "Pectoralis Major",
+     "Forearm Flexors"
+    ],
+    "L"
+   ],
+   "mains": "poings"
+  },
+  "jireugi": {
+   "jambes": "apseogi",
+   "bras": [
+    "hancheD"
+   ],
+   "ik": [
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.12,
+       1.3,
+       0.3
+      ],
+      "Hand_L": [
+       0.02,
+       1.24,
+       0.57
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Deltoids",
+     "Triceps",
+     "Pectoralis Major",
+     "Forearm Extensors"
+    ],
+    "L"
+   ],
+   "mains": "poings"
+  },
+  "apchagi": {
+   "jambes": "garde_coup",
+   "bras": [
+    "gardeG",
+    "gardeD"
+   ],
+   "ik": [],
+   "extra": {
+    "Thigh_R": [
+     0,
+     0,
+     100
+    ],
+    "Shin_R": [
+     0,
+     0,
+     -5
+    ]
+   },
+   "muscles": [
+    [
+     "Quadriceps",
+     "Hip Flexors",
+     "Tibialis Anterior"
+    ],
+    "R"
+   ],
+   "mains": "poings"
+  },
+  "olgulmakki": {
+   "jambes": "apseogi",
+   "bras": [
+    "hancheD"
+   ],
+   "ik": [],
+   "extra": {
+    "UpperArm_L": [
+     -34,
+     -6,
+     110
+    ],
+    "ForeArm_L": [
+     37,
+     38,
+     16
+    ]
+   },
+   "muscles": [
+    [
+     "Deltoids",
+     "Biceps",
+     "Brachialis",
+     "Brachioradialis",
+     "Triceps",
+     "Forearm Flexors",
+     "Forearm Extensors"
+    ],
+    "L"
+   ],
+   "mains": "poings"
+  },
+  "olguljireugi": {
+   "jambes": "apkubi",
+   "bras": [
+    "hancheD"
+   ],
+   "ik": [
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.12,
+       1.46,
+       0.3
+      ],
+      "Hand_L": [
+       0.02,
+       1.52,
+       0.57
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Deltoids",
+     "Triceps",
+     "Pectoralis Major",
+     "Forearm Extensors"
+    ],
+    "L"
+   ],
+   "mains": "poings"
+  },
+  "dwitkubi": {
+   "jambes": "debout",
+   "bras": [
+    "hancheG",
+    "hancheD"
+   ],
+   "ik": [
+    {
+     "libres": [
+      "Thigh_L",
+      "Shin_L",
+      "Thigh_R",
+      "Shin_R"
+     ],
+     "cibles": {
+      "Shin_L": [
+       0.13,
+       0.6,
+       0.3
+      ],
+      "Foot_L": [
+       0.14,
+       0.25,
+       0.42
+      ],
+      "Shin_R": [
+       -0.24,
+       0.58,
+       -0.06
+      ],
+      "Foot_R": [
+       -0.16,
+       0.25,
+       -0.25
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Quadriceps",
+     "Gluteus Maximus",
+     "Hamstrings"
+    ],
+    "R"
+   ],
+   "mains": "poings"
+  },
+  "sonnalmakki": {
+   "jambes": "debout",
+   "bras": [],
+   "ik": [
+    {
+     "libres": [
+      "Thigh_L",
+      "Shin_L",
+      "Thigh_R",
+      "Shin_R"
+     ],
+     "cibles": {
+      "Shin_L": [
+       0.13,
+       0.6,
+       0.3
+      ],
+      "Foot_L": [
+       0.14,
+       0.25,
+       0.42
+      ],
+      "Shin_R": [
+       -0.24,
+       0.58,
+       -0.06
+      ],
+      "Foot_R": [
+       -0.16,
+       0.25,
+       -0.25
+      ]
+     }
+    },
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.34,
+       1.16,
+       0.2
+      ],
+      "Hand_L": [
+       0.3,
+       1.4,
+       0.33
+      ]
+     }
+    },
+    {
+     "libres": [
+      "UpperArm_R",
+      "ForeArm_R"
+     ],
+     "cibles": {
+      "ForeArm_R": [
+       -0.22,
+       1.12,
+       0.08
+      ],
+      "Hand_R": [
+       -0.02,
+       1.18,
+       0.27
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Deltoids",
+     "Triceps",
+     "Forearm Extensors",
+     "Infraspinatus"
+    ],
+    "L"
+   ],
+   "mains": "ouvertes"
+  },
+  "sonnalchigi": {
+   "jambes": "apkubi",
+   "bras": [
+    "hancheD"
+   ],
+   "ik": [
+    {
+     "libres": [
+      "UpperArm_L",
+      "ForeArm_L"
+     ],
+     "cibles": {
+      "ForeArm_L": [
+       0.34,
+       1.4,
+       0.26
+      ],
+      "Hand_L": [
+       0.1,
+       1.48,
+       0.52
+      ]
+     }
+    }
+   ],
+   "muscles": [
+    [
+     "Deltoids",
+     "Triceps",
+     "Pectoralis Major",
+     "Forearm Extensors"
+    ],
+    "L"
+   ],
+   "mains": "ouvertesG"
+  }
+ }
+}

@@ -1,0 +1,36 @@
+<!doctype html><meta charset="utf-8">
+<script type="importmap">{"imports":{"three":"./package/build/three.module.js","three/addons/":"./package/examples/jsm/"}}</script>
+<script type="module">
+// Calculateur d'angles : cherche les rotations d'une chaîne d'os pour amener des articulations sur des cibles.
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+const P = new URLSearchParams(location.search);
+new GLTFLoader().load('corps-homme.glb', g => {
+  const o = g.scene; const os = {}; o.traverse(n => { if (n.isBone) os[n.name] = n; });
+  const repos = {}; for (const k in os) repos[k] = os[k].quaternion.clone();
+  const base = JSON.parse(P.get('pose') || '{}');
+  const os_libres = JSON.parse(P.get('libres'));      // ex. ["UpperArm_L","ForeArm_L"]
+  const cibles = JSON.parse(P.get('cibles'));         // ex. {"ForeArm_L":[x,y,z],"Hand_L":[x,y,z]}
+  const angles = {}; for (const b of os_libres) angles[b] = (base[b] || [0, 0, 0]).slice();
+  const appliquer = () => {
+    for (const k in os) os[k].quaternion.copy(repos[k]);
+    const tout = { ...base, ...angles };
+    for (const [k, v] of Object.entries(tout)) if (os[k]) os[k].quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...v.map(d => d * Math.PI / 180))));
+    o.updateMatrixWorld(true);
+  };
+  const v = new THREE.Vector3();
+  const erreur = () => { appliquer(); let e = 0; for (const [k, t] of Object.entries(cibles)) { os[k].getWorldPosition(v); e += v.distanceToSquared(new THREE.Vector3(...t)); }
+    for (const b of os_libres) for (const a of angles[b]) e += 1e-7 * a * a; return e; };
+  let meilleur = erreur();
+  for (const pas of [30, 15, 8, 4, 2, 1]) {
+    let mieux = true;
+    while (mieux) { mieux = false;
+      for (const b of os_libres) for (let i = 0; i < 3; i++) for (const s of [pas, -pas]) {
+        angles[b][i] += s; const e = erreur(); if (e < meilleur - 1e-9) { meilleur = e; mieux = true; } else angles[b][i] -= s; } }
+  }
+  erreur();
+  const pos = {}; for (const k of Object.keys(cibles)) { os[k].getWorldPosition(v); pos[k] = v.toArray().map(x => +x.toFixed(3)); }
+  for (const b of os_libres) angles[b] = angles[b].map(Math.round);
+  document.title = 'pret' + JSON.stringify({ angles, pos, erreur_cm: +(Math.sqrt(meilleur) * 100).toFixed(1) });
+});
+</script>

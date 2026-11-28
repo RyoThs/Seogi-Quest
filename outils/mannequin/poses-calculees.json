@@ -1,0 +1,1090 @@
+{
+ "naranhi": {
+  "pose": {
+   "UpperArm_L": [
+    30,
+    -25,
+    30
+   ],
+   "ForeArm_L": [
+    0,
+    0,
+    29
+   ],
+   "UpperArm_R": [
+    -30,
+    25,
+    30
+   ],
+   "ForeArm_R": [
+    0,
+    0,
+    29
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 4.1
+ },
+ "moa": {
+  "pose": {
+   "Thigh_L": [
+    -74,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    74,
+    0,
+    -5
+   ],
+   "UpperArm_L": [
+    9,
+    -35,
+    0
+   ],
+   "ForeArm_L": [
+    50,
+    -10,
+    31
+   ],
+   "UpperArm_R": [
+    -9,
+    35,
+    0
+   ],
+   "ForeArm_R": [
+    -50,
+    10,
+    31
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 3
+ },
+ "apseogi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    25
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -20
+   ],
+   "UpperArm_L": [
+    0,
+    -60,
+    -45
+   ],
+   "ForeArm_L": [
+    0,
+    65,
+    -30
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   426,
+   427,
+   428,
+   430,
+   431,
+   432,
+   406,
+   410,
+   472,
+   473,
+   475,
+   476,
+   478,
+   479
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 0
+ },
+ "apkubi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    60
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -60
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -42
+   ],
+   "UpperArm_L": [
+    0,
+    -60,
+    -45
+   ],
+   "ForeArm_L": [
+    0,
+    65,
+    -30
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   426,
+   427,
+   428,
+   430,
+   431,
+   432,
+   406,
+   410,
+   472,
+   473,
+   475,
+   476,
+   478,
+   479
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 0
+ },
+ "araemakki": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    60
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -60
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -42
+   ],
+   "UpperArm_L": [
+    0,
+    -35,
+    30
+   ],
+   "ForeArm_L": [
+    0,
+    -35,
+    0
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   297,
+   298,
+   301,
+   342,
+   307,
+   308,
+   315,
+   321,
+   322,
+   332,
+   336,
+   343,
+   344
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 0
+ },
+ "momtongmakki": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    25
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -20
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "UpperArm_L": [
+    30,
+    -32,
+    47
+   ],
+   "ForeArm_L": [
+    -7,
+    60,
+    0
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   297,
+   298,
+   301,
+   342,
+   228,
+   229,
+   230,
+   315,
+   321,
+   322
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 3
+ },
+ "jireugi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    25
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -20
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "UpperArm_L": [
+    54,
+    86,
+    60
+   ],
+   "ForeArm_L": [
+    -29,
+    -39,
+    -24
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   307,
+   308,
+   228,
+   229,
+   230,
+   332,
+   336,
+   343,
+   344
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 10.6
+ },
+ "apchagi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    10
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -15
+   ],
+   "UpperArm_L": [
+    0,
+    -50,
+    25
+   ],
+   "ForeArm_L": [
+    0,
+    100,
+    0
+   ],
+   "UpperArm_R": [
+    0,
+    50,
+    25
+   ],
+   "ForeArm_R": [
+    0,
+    -100,
+    0
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    100
+   ],
+   "Shin_R": [
+    0,
+    0,
+    -5
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   426,
+   427,
+   428,
+   408,
+   434,
+   462
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 0
+ },
+ "olgulmakki": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    25
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -5
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -20
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "UpperArm_L": [
+    -34,
+    -6,
+    110
+   ],
+   "ForeArm_L": [
+    37,
+    38,
+    16
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   297,
+   298,
+   301,
+   342,
+   307,
+   308,
+   315,
+   321,
+   322,
+   332,
+   336,
+   343,
+   344
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 0
+ },
+ "olguljireugi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    60
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -60
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -42
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "UpperArm_L": [
+    31,
+    130,
+    58
+   ],
+   "ForeArm_L": [
+    -126,
+    34,
+    -34
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   307,
+   308,
+   228,
+   229,
+   230,
+   332,
+   336,
+   343,
+   344
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 10.4
+ },
+ "dwitkubi": {
+  "pose": {
+   "UpperArm_L": [
+    0,
+    -60,
+    -45
+   ],
+   "ForeArm_L": [
+    0,
+    65,
+    -30
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "Thigh_L": [
+    0,
+    0,
+    37
+   ],
+   "Shin_L": [
+    16,
+    -10,
+    -13
+   ],
+   "Thigh_R": [
+    -62,
+    0,
+    -22
+   ],
+   "Shin_R": [
+    -55,
+    9,
+    54
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ],
+   "Fingers_Proximal_L": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_L": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_L": [
+    0,
+    -60,
+    -30
+   ]
+  },
+  "muscles": [
+   426,
+   427,
+   428,
+   406,
+   450,
+   454,
+   455
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85,
+   "Fingers_Proximal_L": 0.6,
+   "Thumb_L": 0.85
+  },
+  "erreur_cm": 10.6
+ },
+ "sonnalmakki": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    37
+   ],
+   "Shin_L": [
+    16,
+    -10,
+    -13
+   ],
+   "Thigh_R": [
+    -62,
+    0,
+    -22
+   ],
+   "Shin_R": [
+    -55,
+    9,
+    54
+   ],
+   "UpperArm_L": [
+    6,
+    -10,
+    34
+   ],
+   "ForeArm_L": [
+    -26,
+    59,
+    0
+   ],
+   "UpperArm_R": [
+    -28,
+    32,
+    30
+   ],
+   "ForeArm_R": [
+    5,
+    -40,
+    27
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   307,
+   308,
+   332,
+   336,
+   343,
+   344,
+   291,
+   292
+  ],
+  "echelle": {},
+  "erreur_cm": 10.6
+ },
+ "sonnalchigi": {
+  "pose": {
+   "Thigh_L": [
+    0,
+    0,
+    60
+   ],
+   "Shin_L": [
+    0,
+    0,
+    -60
+   ],
+   "Thigh_R": [
+    0,
+    0,
+    -42
+   ],
+   "UpperArm_R": [
+    0,
+    60,
+    -45
+   ],
+   "ForeArm_R": [
+    0,
+    -65,
+    -30
+   ],
+   "UpperArm_L": [
+    30,
+    76,
+    44
+   ],
+   "ForeArm_L": [
+    -61,
+    29,
+    -14
+   ],
+   "Fingers_Proximal_R": [
+    0,
+    0,
+    85
+   ],
+   "Fingers_Distal_R": [
+    0,
+    0,
+    100
+   ],
+   "Thumb_R": [
+    0,
+    60,
+    30
+   ]
+  },
+  "muscles": [
+   282,
+   283,
+   284,
+   307,
+   308,
+   228,
+   229,
+   230,
+   332,
+   336,
+   343,
+   344
+  ],
+  "echelle": {
+   "Fingers_Proximal_R": 0.6,
+   "Thumb_R": 0.85
+  },
+  "erreur_cm": 8.9
+ }
+}
