@@ -1,5 +1,5 @@
 import { motParId } from '../donnees/mots.js';
-import { imagePrincipale } from '../dessin/vues.js';
+import { imagePrincipaleDuMot as imagePrincipale } from '../dessin/images.js';
 import { ICONES } from './icones.js';
 import { ficheMot } from './fiche.js';
 

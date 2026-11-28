@@ -1,0 +1,72 @@
+<!doctype html><meta charset="utf-8"><style>body{margin:0;background:#f5f2ec}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./package/build/three.module.js","three/addons/":"./package/examples/jsm/"}}</script>
+<script type="module">
+// Rendu « studio » du mannequin : environnement, 3 lumières, ombres douces, occlusion ambiante (GTAO)
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { GTAOPass } from 'three/addons/postprocessing/GTAOPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+import * as SkeletonUtils from 'three/addons/utils/SkeletonUtils.js';
+const P = new URLSearchParams(location.search);
+const W = +P.get('w') || 600, H = +P.get('h') || 600;
+const r = new THREE.WebGLRenderer({ antialias: true, preserveDrawingBuffer: true });
+r.setSize(W, H); r.setPixelRatio(2); r.shadowMap.enabled = true; r.shadowMap.type = THREE.VSMShadowMap;
+r.toneMapping = THREE.NoToneMapping; r.outputColorSpace = THREE.SRGBColorSpace;
+document.body.appendChild(r.domElement);
+const sc = new THREE.Scene(); sc.background = new THREE.Color('#ebe6dc');
+const pm = new THREE.PMREMGenerator(r); sc.environment = pm.fromScene(new RoomEnvironment(), 0.04).texture; sc.environmentIntensity = 0.55;
+const cam = new THREE.PerspectiveCamera(28, W / H, 0.1, 100);
+const cle = new THREE.DirectionalLight('#fff6ec', 1.9); cle.position.set(2.5, 4, 3); cle.castShadow = true; cle.shadow.mapSize.set(4096, 4096); cle.shadow.radius = 10; cle.shadow.blurSamples = 16; cle.shadow.bias = -0.0002; cle.shadow.normalBias = 0.035;
+Object.assign(cle.shadow.camera, { left: -1.4, right: 1.4, top: 2.2, bottom: -0.3, near: 1, far: 12 }); sc.add(cle);
+const rempl = new THREE.DirectionalLight('#e8eefc', 0.7); rempl.position.set(-3, 2, 2); sc.add(rempl);
+const contre = new THREE.DirectionalLight('#ffffff', 1.0); contre.position.set(-1, 3, -4); sc.add(contre);
+const sol = new THREE.Mesh(new THREE.PlaneGeometry(30, 30), new THREE.ShadowMaterial({ opacity: .22 })); sol.rotation.x = -Math.PI / 2; sol.receiveShadow = true; sol.material.opacity = .18; sc.add(sol);
+new GLTFLoader().load('corps-homme.glb', g => {
+  const fantomeScene = P.get('fantome') ? SkeletonUtils.clone(g.scene) : null;
+  const o = g.scene; sc.add(o);
+  const os = {}; o.traverse(n => { if (n.isBone) os[n.name.replace('mixamorig', '')] = n; }); window.os = os;
+  // carrure d'homme : épaules plus larges, bassin plus étroit
+  if (P.get('homme') && os.Spine2) { os.Spine2.scale.set(1.12, 1, 1.05); os.LeftArm.scale.set(1/1.12, 1, 1/1.05); os.RightArm.scale.set(1/1.12, 1, 1/1.05); os.Neck.scale.set(1/1.12, 1, 1/1.05); os.Hips.scale.set(.93, 1, .95); os.LeftUpLeg.scale.set(1/.93, 1, 1/.95); os.RightUpLeg.scale.set(1/.93, 1, 1/.95); os.Spine.scale.set(1/.93, 1, 1/.95); }
+  const pose = JSON.parse(P.get('pose') || '{}');
+  for (const [k, v] of Object.entries(pose)) if (os[k]) os[k].quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...v.map(d => d * Math.PI / 180))));
+  const ech = JSON.parse(P.get('echelle') || '{}'); for (const [k, v] of Object.entries(ech)) if (os[k]) os[k].scale.setScalar(v);
+  const actifs = (P.get('actif') || '').split(',').filter(Boolean);
+  const peau = new THREE.Color(P.get('teinte') || '#e8e3da'), jt = new THREE.Color(P.get('joint') || '#cfcac1'), rouge = new THREE.Color('#9e1c24');
+  o.traverse(n => {
+    if (!n.isSkinnedMesh) return;
+    n.castShadow = true; n.receiveShadow = false;
+    const g2 = n.geometry, si = g2.attributes.skinIndex, sw = g2.attributes.skinWeight, nb = g2.attributes.position.count;
+    const ids = new Set(n.skeleton.bones.map((b, i) => actifs.includes(b.name.replace('mixamorig', '')) ? i : -1).filter(i => i >= 0));
+    const estJoint = [].concat(n.material).some(m => /Joint/i.test(m.name)) && !P.get('origine');
+    const col = new Float32Array(nb * 3), c = new THREE.Color();
+    for (let v = 0; v < nb; v++) { let w = 0; for (let k = 0; k < 4; k++) if (ids.has(si.getComponent(v, k))) w += sw.getComponent(v, k); c.copy(estJoint ? jt : peau).lerp(rouge, Math.min(1, w * 1.15)); col.set([c.r, c.g, c.b], v * 3); }
+    const mus = g2.attributes._muscle, ciblés = new Set((P.get('muscles') || '').split(',').filter(Boolean).map(Number));
+    if (mus && ciblés.size) for (let v = 0; v < nb; v++) if (ciblés.has(Math.round(mus.getX(v)))) { col[v*3] = rouge.r; col[v*3+1] = rouge.g; col[v*3+2] = rouge.b; }
+    if (!P.get('origine')) g2.setAttribute('color', new THREE.BufferAttribute(col, 3));
+    if (P.get('origine')) { n.material = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .5 }); return; }
+    n.material = new THREE.MeshPhysicalMaterial({ side: THREE.DoubleSide, vertexColors: true, roughness: .42, metalness: 0, clearcoat: .25, clearcoatRoughness: .5, sheen: .25, sheenRoughness: .7, sheenColor: new THREE.Color('#ffffff') });
+  });
+  o.updateMatrixWorld(true); { const b0 = new THREE.Box3().setFromObject(o); o.position.y -= b0.min.y; o.position.y += +(P.get('lever') || 0); o.updateMatrixWorld(true); }
+  if (fantomeScene) {
+    const f = fantomeScene; sc.add(f); const fo = {}; f.traverse(n => { if (n.isBone) fo[n.name] = n; });
+    for (const [k, v] of Object.entries(JSON.parse(P.get('fantome')))) if (fo[k]) fo[k].quaternion.multiply(new THREE.Quaternion().setFromEuler(new THREE.Euler(...v.map(d => d * Math.PI / 180))));
+    for (const [k, v] of Object.entries(ech)) if (fo[k]) fo[k].scale.setScalar(v);
+    f.traverse(n => { if (n.isMesh) { n.castShadow = false; n.material = new THREE.MeshStandardMaterial({ color: '#d8d3ca', transparent: true, opacity: .28, depthWrite: false, roughness: .6 }); n.renderOrder = -1; } });
+    f.updateMatrixWorld(true); const bf = new THREE.Box3().setFromObject(f); f.position.y -= bf.min.y; f.position.y += +(P.get('lever') || 0) * 0; f.updateMatrixWorld(true);
+  }
+  const box = new THREE.Box3().setFromObject(o); box.min.y = 0; const c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3());
+  const ang = (+P.get('a') || 0) * Math.PI / 180, d = Math.max(sz.y, sz.x * .9) * 2.2;
+  cam.position.set(c.x + Math.sin(ang) * d, c.y + sz.y * .12, c.z + Math.cos(ang) * d); cam.lookAt(c.x, c.y - sz.y * .02, c.z);
+  if (P.get('cible') && os[P.get('cible')]) { const t = new THREE.Vector3(); os[P.get('cible')].getWorldPosition(t); const dd = +P.get('dist') || .35;
+    const el = (+P.get('el') || 0) * Math.PI / 180;
+    cam.position.set(t.x + Math.sin(ang) * Math.cos(el) * dd, t.y + Math.sin(el) * dd, t.z + Math.cos(ang) * Math.cos(el) * dd); cam.lookAt(t); }
+  const comp = new EffectComposer(r); comp.addPass(new RenderPass(sc, cam));
+  const ao = new GTAOPass(sc, cam, W, H); ao.updateGtaoMaterial({ radius: .35, distanceExponent: 1.2, thickness: 1, scale: 1.1 }); ao.blendIntensity = .9; comp.addPass(ao);
+  comp.addPass(new OutputPass()); comp.render();
+  const w = k => { const v = new THREE.Vector3(); os[k]?.getWorldPosition(v); return v.toArray().map(x => x.toFixed(2)).join(' '); };
+  document.title = 'pret|' + (P.get('mes') || '').split(',').filter(Boolean).map(k => k + ' ' + w(k)).join(' | ');
+});
+</script>

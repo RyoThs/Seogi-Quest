@@ -47,7 +47,7 @@ test('niveaux : 8 ceintures puis 9 dans', async () => {
 
 test('partie : 4 images, trouver le mot, voir l\'explication, progression gardée', async () => {
   const { ctx, page, erreurs } = await ouvrir('iPhone 13', '#/jeu/k8');
-  assert.equal(await page.locator('.images svg').count(), 4);
+  assert.equal(await page.locator('.images .illus').count(), 4);
   const mot = await page.locator('[data-solution]').getAttribute('data-solution');
   await taper(page, mot);
   await page.getByText('Trouvé').waitFor();
@@ -80,6 +80,22 @@ test('partie : l\'indice pose la bonne première lettre', async () => {
   await ctx.close();
 });
 
+test('partie 8e keup : les 4 images sont les photos du mannequin', async () => {
+  const { ctx, page } = await ouvrir('iPhone 13', '#/jeu/k8');
+  const imgs = page.locator('.images img');
+  assert.equal(await imgs.count(), 4);
+  await page.waitForFunction(() => [...document.querySelectorAll('.images img')].every(i => i.complete && i.naturalWidth > 0));
+  await ctx.close();
+});
+
+test('à propos : le crédit du mannequin est affiché', async () => {
+  const { ctx, page } = await ouvrir('iPhone 13', '#/');
+  await page.getByRole('button', { name: 'À propos' }).click();
+  const texte = await page.locator('main').innerText();
+  for (const mot of ['MakeHuman', 'Z-Anatomy', 'BodyParts3D', 'CC BY-SA 4.0']) assert.ok(texte.includes(mot), mot);
+  await ctx.close();
+});
+
 test('révision : sans mot trouvé, un message explique quoi faire', async () => {
   const { ctx, page } = await ouvrir('iPhone 13', '#/revision');
   await page.getByText(/Trouve d'abord des mots/).waitFor();
@@ -91,7 +107,7 @@ test('révision : carte image puis réponse, Je savais / À revoir', async () =>
   await taper(page, await page.locator('[data-solution]').getAttribute('data-solution'));
   await page.getByText('Trouvé').waitFor();
   await page.goto(serveur.url + '#/revision');
-  await page.locator('.carte svg').waitFor();
+  await page.locator('.carte .illus img, .carte .illus svg').first().waitFor();
   await page.getByRole('button', { name: 'Voir la réponse' }).click();
   await page.locator('.mot-trouve').waitFor();
   await page.getByRole('button', { name: 'Je savais' }).click();
@@ -138,5 +154,7 @@ test('hors ligne : après une 1re visite, l\'appli s\'ouvre sans internet', asyn
   await ctx.setOffline(true);
   await page.reload();
   await page.getByRole('heading', { name: /Seogi Quest/ }).waitFor();
+  await page.goto(serveur.url + '#/jeu/k7');
+  await page.waitForFunction(() => { const i = [...document.querySelectorAll('.images img')]; return i.length === 4 && i.every(x => x.complete && x.naturalWidth > 0); });
   await ctx.close();
 });
