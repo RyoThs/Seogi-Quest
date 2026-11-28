@@ -47,8 +47,8 @@ new GLTFLoader().load('corps-homme.glb', g => {
     if (P.get('origine')) { n.material = new THREE.MeshPhysicalMaterial({ vertexColors: true, roughness: .5 }); return; }
     n.material = new THREE.MeshPhysicalMaterial({ side: THREE.DoubleSide, vertexColors: true, roughness: .42, metalness: 0, clearcoat: .25, clearcoatRoughness: .5, sheen: .25, sheenRoughness: .7, sheenColor: new THREE.Color('#ffffff') });
   });
-  o.updateMatrixWorld(true); { const b0 = new THREE.Box3().setFromObject(o); o.position.y -= b0.min.y; o.updateMatrixWorld(true); }
-  const box = new THREE.Box3().setFromObject(o), c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3());
+  o.updateMatrixWorld(true); { const b0 = new THREE.Box3().setFromObject(o); o.position.y -= b0.min.y; o.position.y += +(P.get('lever') || 0); o.updateMatrixWorld(true); }
+  const box = new THREE.Box3().setFromObject(o); box.min.y = 0; const c = box.getCenter(new THREE.Vector3()), sz = box.getSize(new THREE.Vector3());
   const ang = (+P.get('a') || 0) * Math.PI / 180, d = Math.max(sz.y, sz.x * .9) * 2.2;
   cam.position.set(c.x + Math.sin(ang) * d, c.y + sz.y * .12, c.z + Math.cos(ang) * d); cam.lookAt(c.x, c.y - sz.y * .02, c.z);
   if (P.get('cible') && os[P.get('cible')]) { const t = new THREE.Vector3(); os[P.get('cible')].getWorldPosition(t); const dd = +P.get('dist') || .35;

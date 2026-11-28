@@ -23,11 +23,12 @@ const POING = { Fingers_Proximal_R: [0, 0, 85], Fingers_Distal_R: [0, 0, 100], T
       const r = JSON.parse((await p.title()).slice(4));
       Object.assign(pose, r.angles); erreur = Math.max(erreur, r.erreur_cm);
     }
-    const mains = m.mains === 'poings' ? POING : m.mains === 'ouvertesG' ? Object.fromEntries(Object.entries(POING).filter(([k]) => k.endsWith('_R'))) : {};
+    const garder = s => Object.fromEntries(Object.entries(POING).filter(([k]) => k.endsWith(s)));
+    const mains = m.mains === 'poings' ? POING : m.mains === 'ouvertesG' ? garder('_R') : m.mains === 'ouvertesD' ? garder('_L') : {};
     Object.assign(pose, mains);
     const [groupes, cotes] = m.muscles.length ? m.muscles : [[], ''];
     const ids = groupes.flatMap(g => mus.groups[g]).filter(i => cotes.includes(cote[i]));
-    sortie[id] = { pose, muscles: [...new Set(ids)], echelle: m.mains === 'ouvertes' ? {} : m.mains === 'ouvertesG' ? { Fingers_Proximal_R: .6, Thumb_R: .85 } : { Fingers_Proximal_R: .6, Thumb_R: .85, Fingers_Proximal_L: .6, Thumb_L: .85 }, erreur_cm: erreur };
+    sortie[id] = { pose, muscles: [...new Set(ids)], echelle: m.mains === 'ouvertes' ? {} : m.mains === 'ouvertesG' ? { Fingers_Proximal_R: .6, Thumb_R: .85 } : m.mains === 'ouvertesD' ? { Fingers_Proximal_L: .6, Thumb_L: .85 } : { Fingers_Proximal_R: .6, Thumb_R: .85, Fingers_Proximal_L: .6, Thumb_L: .85 }, erreur_cm: erreur, vue: m.vue ?? 60, lever: m.lever || 0 };
     console.log(id.padEnd(14), 'écart', erreur, 'cm');
   }
   const ancien = fs.existsSync('poses-calculees.json') ? JSON.parse(fs.readFileSync('poses-calculees.json', 'utf8')) : {};
